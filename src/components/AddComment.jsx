@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const AddComment = ({ asin }) => {
+const AddComment = ({ asin, getComments }) => {
   const [comment, setComment] = useState({
     comment: "",
     rate: 1,
@@ -24,7 +24,7 @@ const AddComment = ({ asin }) => {
         headers: {
           "Content-type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4YTBkMThmYzBmMzAwMTU1ZTViOTkiLCJpYXQiOjE3MjAxMjA1MTcsImV4cCI6MTcyMTMzMDExN30.o3lnCSdKFla0Tejz_6ZkvwFqKnKOvQv9L7PaxSXrUGA",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4YTBkMThmYzBmMzAwMTU1ZTViOTkiLCJpYXQiOjE3MjA3OTYxNTgsImV4cCI6MTcyMjAwNTc1OH0.nOAZQn8TN2anJXQAtR6C9RDcCTO4apq5ndKAOWm_OFE",
         },
       });
       if (response.ok) {
@@ -34,6 +34,7 @@ const AddComment = ({ asin }) => {
           rate: 1,
           elementId: null,
         });
+        getComments();
       } else {
         throw new Error("Qualcosa è andato storto");
       }

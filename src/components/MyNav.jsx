@@ -1,11 +1,8 @@
-import React from "react";
 import { Form, Nav, Navbar, NavLink } from "react-bootstrap";
 import { BsCart4 } from "react-icons/bs";
 import { CgDarkMode } from "react-icons/cg";
 
-function MyNav({ toggleDarkMode }) {
-  const [searchQuery, setSearchQuery] = React.useState("");
-
+function MyNav({ toggleDarkMode, searchQuery, setSearchQuery }) {
   return (
     <Navbar bg="dark" variant="dark" className="ps-5 d-flex justify-content-between">
       <Nav>
